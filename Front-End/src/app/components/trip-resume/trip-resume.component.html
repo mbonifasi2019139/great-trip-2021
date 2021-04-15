@@ -1,0 +1,68 @@
+<ion-header [translucent]="true">
+
+  <ion-toolbar color="success">
+    <ion-title>Resumen de Viaje</ion-title>
+
+    <ion-buttons slot="end">
+      <ion-avatar>
+        <!-- <img src="../../../assets/img/logo.jpeg" /> -->
+        <ion-img src="../../../assets/img/logo.jpeg"></ion-img>  <!-- Utiliza LazyLoad -->
+      </ion-avatar>
+    </ion-buttons>
+
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+  <div class="ion-padding">
+    <ion-item slot="start">
+        <img src="{{ urlImage }}" alt="img" class="img-detail">
+    </ion-item>
+    <ion-text color="dark" class="center"><h1>{{ title }}</h1></ion-text>
+  </div>
+    <ion-item class="center">
+      <ion-text class="field" color="tertiary">Fecha de viaje:</ion-text>
+      <ion-text color="dark"><h1>{{ showDateInFormat(start_date) }}</h1></ion-text>
+    </ion-item>
+  <ion-item class="center">
+    <ion-text class="field" color="tertiary" slot="start">Guía turístico:</ion-text>
+    <ion-text color="dark"><h1>No hay guía turístico</h1></ion-text>
+  </ion-item>
+
+
+
+  <ion-list>
+    <ion-radio-group value="biff">
+      <ion-list-header>
+        <ion-text class="field" color="tertiary" slot="start">Modo de reunión</ion-text>
+      </ion-list-header>
+  
+      <ion-item>
+        <ion-label>Transporte privado   +$5.00</ion-label>
+        <ion-radio slot="start" value="1" (click)="setValue(5)"></ion-radio>
+      </ion-item>
+  
+      <ion-item>
+        <ion-label>Yo mismo llegaré</ion-label>
+        <ion-radio slot="start" value="2" (click)="setValue(0)"></ion-radio>
+      </ion-item>
+    </ion-radio-group>
+  </ion-list>
+
+  <ion-toolbar>
+    <section>
+        <ion-button color="success" fill="solid" expand="block" (click)="showTripFinalModal(price,value)">
+            <ion-icon name="card-outline"></ion-icon>
+            <ion-label>Siguiente</ion-label>
+        </ion-button>
+    </section>
+
+    <section>
+        <ion-button color="danger" fill="solid" expand="block" (click)="closeTripResumeModal()">
+            <ion-icon name="close-outline"></ion-icon>
+            <ion-label>Cancelar</ion-label>
+        </ion-button>
+    </section>
+</ion-toolbar>
+
+</ion-content>
